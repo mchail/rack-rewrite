@@ -130,7 +130,7 @@ module Rack
         additional_headers = {}
         if @options[:headers]
           if @options[:headers].respond_to?(:call)
-            additional_headers = @options[:headers].call || {}
+            additional_headers = @options[:headers].call(env) || {}
           else
             additional_headers = @options[:headers] || {}
           end
